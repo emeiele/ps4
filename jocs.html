@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlayStation 4</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo_ps4_white (1).png" alt="Logo PS4">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="specs.html">Especificacions Tècniques</a></li>
+                <li><a href="jocs.html">Jocs</a></li>
+                <li><a href="historia.html">Història</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="banner-top">
+            <h1 class="titol">Jocs</h1>
+            <img class="promocio" src="img/OnlyOnPlaystation.png">
+        </div>
+        <div class=" container-jocs">
+
+            <div class="mySlides fade">
+                <img src="img/caratula.jpg" style="width:100%">
+                <div class="text">BATTLEFIELD 1 </div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/caratula1.jpg" style="width:100%">
+                <div class="text">DEAD ISLAND 2</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/caratula2.jpg" style="width:100%">
+                <div class="text">DEATH STRANDING</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/caratula3.jpg" style="width:100%">
+                <div class="text">GOD OF WAR 4</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+        <div class="slots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </main>
+    <footer>
+        <div class="info">
+            <div class="section">
+                <img src="img/placeholder.png" alt="Location">
+                <p>C/ Sagrada Familia 7, Vic</p>
+            </div>
+            <div class="section">
+                <img src="img/call.png" alt="Phone">
+                <p>630 08 64 51</p>
+            </div>
+            <div class="section">
+                <img src="img/email.png" alt="Email">
+                <p>lorem@ipsum.com</p>
+            </div>
+        </div>
+        <div class="about">
+            <h3>Nosaltres</h3>
+            <p>Si tens alguna qüestió, nosaltres tenim la resposta</p>
+            <div class="iconos">
+                <a href="#"><img src="img/facebook.png" alt="facebook" class="facebook"></a>
+                <a href="#"><img src="img/twitter.png" alt="twitter" class="twitter"></a>
+                <a href="#"><img src="img/github.png" alt="github" class="github"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+</body>
