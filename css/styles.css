@@ -383,6 +383,9 @@ td{
     text-align: center;
     float: right;
 }
+.button-blue:hover{
+    background-color: #000000;
+}
 
 @media (max-width: 800px){
     .banner-top h1.titol,
