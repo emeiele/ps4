@@ -18,6 +18,17 @@
 </head>
 
 <body>
+    <div class="overlay">
+        <img id="img_overlay" src="img/caratula.jpg">
+        <div class="text_overlay">
+            <h2 id="nom"></h2>
+            <p id="p1"></p>
+            <p id="p2"></p>
+            <p id="p3"></p>
+            <p id="p4"></p>
+            <p id="p5"></p>
+        </div>
+    </div>
     <header>
         <nav>
             <div class="logo">
@@ -41,22 +52,22 @@
         <div class=" container-jocs">
 
             <div class="mySlides fade">
-                <img src="img/caratula.jpg" style="width:100%">
+                <img src="img/caratula.jpg" style="width:100%" data-index="0">
                 <div class="text">BATTLEFIELD 1 </div>
             </div>
 
             <div class="mySlides fade">
-                <img src="img/caratula1.jpg" style="width:100%">
+                <img src="img/caratula1.jpg" style="width:100%" data-index="1">
                 <div class="text">DEAD ISLAND 2</div>
             </div>
 
             <div class="mySlides fade">
-                <img src="img/caratula2.jpg" style="width:100%">
+                <img src="img/caratula2.jpg" style="width:100%" data-index="2">
                 <div class="text">DEATH STRANDING</div>
             </div>
 
             <div class="mySlides fade">
-                <img src="img/caratula3.jpg" style="width:100%">
+                <img src="img/caratula3.jpg" style="width:100%" data-index="3">
                 <div class="text">GOD OF WAR 4</div>
             </div>
 
@@ -100,6 +111,52 @@
     </footer>
 
     <script>
+        var nom=document.getElementById("nom")
+        var p1=document.getElementById("p1")
+        var p2=document.getElementById("p2")
+        var p3=document.getElementById("p3")
+        var p4=document.getElementById("p4")
+        var p5=document.getElementById("p5")
+
+        const text_jocs = [
+            { "nom_": "BATTLEFIELD 1", "p1_": " Sinopsis = Vive los inicios de la guerra total.", "p2_": "Battlefield™ 1 te transporta a la Primera Guerra Mundial, donde la nueva tecnología y el conflicto internacional cambiaron la guerra para siempre.", "p3_": "Género = Acción, First Person Shooter", "p4_": "Desarrollador EA DICE", "p5_": "Lanzamiento 21/10/2016" },
+            { "nom_": "DEAD ISLAND 2", "p1_": " Sinopsis = Bienvenido a la California zombi! Mata y sobrevive en Dead Island 2", "p2_": "Explora el Estado Dorado, con sus frondosos bosques y soleadas playas.", "p3_": "Género = Acción, Open World", "p4_": "Desarrollador Deep Silver", "p5_": "Lanzamiento 21/12/2019" },
+            { "nom_": "DEATH STRANDING", "p1_": "Sinopsis = Embárcate en un viaje como nunca antes has visto", "p2_": "Como Sam Porter Bridges, deberéis salvar las diferencias en la sociedad.", "p3_": "Género = Acción, Open World", "p4_": "Desarrollador Kojima Productions", "p5_": "Lanzamiento 08/11/2019" },
+            { "nom_": "GOD OF WAR 4", "p1_": "Sinopsis = Adéntrate en una aventura compleja y desconocida.", "p2_": "Únete a Kratos en un profundo viaje de reflexión, crecimiento, violencia y el deseo de convertirse en un hombre mejor por su hijo.", "p3_": "Género = Adventure", "p4_": "Desarrollador Santa Monica Studios", "p5_": "Lanzamiento 20/14/2018" }
+        ]
+
+
+        function crearText(element){
+            nom.textContent=element.nom_
+            p1.textContent=element.p1_
+            p2.textContent=element.p2_
+            p3.textContent=element.p3_
+            p4.textContent=element.p4_
+            p5.textContent=element.p5_
+        }
+
+        let img = document.querySelectorAll(".mySlides")
+        let overlay = document.querySelector(".overlay")
+        for (i = 0; i < img.length; i++) {
+            img[i].addEventListener(
+                "click",
+                function (e) {
+                    console.log(e.target.dataset.index)
+                    crearText(text_jocs[e.target.dataset.index])
+                    overlay.querySelector("img").src = e.target.src
+                    overlay.style.display = "flex"
+                }
+            )
+        }
+        overlay.addEventListener(
+            "click",
+            function (e) {
+                if (e.target.id != "img_overlay") {
+                    overlay.style.display = "none"
+                }
+            }
+        )
+
         var slideIndex = 1;
         showSlides(slideIndex);
 

@@ -65,7 +65,23 @@
         <div class="background">
             <div class="newsletter">
                 <h2>Subscriu-te a la nostra Newsletter per rebre novetats!</h2>
-                <a href="#" class="button">LINK</a>
+                <button class="button" id="open">Omple el formulari</button>
+            </div>
+        </div>
+        <div class="pop-up" id="pop-up">
+            <div class="content">
+                <span class="close">&times;</span>
+                <h3>Introdueix les dades</h3>
+                <form class="formulari">
+                    <input class="entrada" type="text" name="lastname" placeholder="Nom i cognoms" required><br>
+                    <input class="entrada" type="email" name="lastname" placeholder="E-Mail" required><br><br>
+                    <div class="genere" required>
+                        <input type="radio" name="genere"> Home
+                        <input type="radio" name="genere"> Dona
+                        <input type="radio" name="genere"> Altre
+                    </div>
+                    <input type="submit" value="Enviar" class="submit">
+                </form>
             </div>
         </div>
     </main>
@@ -94,6 +110,22 @@
             </div>
         </div>
     </footer>
+    <script>
+        var modal = document.getElementById("pop-up");
+        var btn = document.getElementById("open");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
